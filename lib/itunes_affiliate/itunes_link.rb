@@ -25,6 +25,11 @@ module ItunesAffiliate
       end
     end
     
+    def self.is_valid_link?(link)
+      uri = URI.parse(link) rescue nil
+      
+      uri != nil && uri.host != nil && uri.host.downcase == "itunes.apple.com"
+    end
     
     private 
     

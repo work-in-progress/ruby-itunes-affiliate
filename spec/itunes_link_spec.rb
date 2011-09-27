@@ -94,7 +94,52 @@ describe ItunesAffiliate::ItunesLink do
     end
   end
   
-  
+  context "when converting through the class method" do
+    before(:each) do
+    end
+
+    it "should pass nil values along" do
+      res = ItunesAffiliate.affiliate_link(nil,:linkshare)
+      res.should be_nil
+    end
+
+    it "should pass empty values along" do
+      res = ItunesAffiliate.affiliate_link('',:linkshare)
+      res.should == ''
+    end
+    
+    it "should pass random urls along" do
+      res = ItunesAffiliate.affiliate_link("http://latimes.com",:linkshare)
+      res.should == "http://latimes.com"
+    end
+    
+    it "should convert itunes urls" do
+      params = link_to_hash ItunesAffiliate.affiliate_link(RawLinkWithoutQuestionMark,:linkshare)
+      params['siteID'].should == LinkShareAffiliateCode
+      params['partnerId'].should == '30'
+    end
+  end
+
+  context "testing urls" do
+    it "should recognize nil as not an itunes url" do
+      ItunesAffiliate::ItunesLink.is_valid_link?(nil).should be(false)
+    end
+
+    it "should recognize empty as not an itunes url" do
+      ItunesAffiliate::ItunesLink.is_valid_link?("").should be(false)
+    end
+
+    it "should recognize http://latimes.com as not an itunes url" do
+      ItunesAffiliate::ItunesLink.is_valid_link?("http://latimes.com").should be(false)
+    end
+    
+
+    it "should recognize a valid itunes url." do
+      ItunesAffiliate::ItunesLink.is_valid_link?(RawLinkWithoutQuestionMark).should be(true)
+      ItunesAffiliate::ItunesLink.is_valid_link?(RawLinkWithQuestionMark).should be(true)
+    end
+    
+  end
   # Missing specs:
   # Must raise ArgumentException if invalid affiliate link
   # Must raise ArgumentException if no link is passed

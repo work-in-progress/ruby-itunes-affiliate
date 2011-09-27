@@ -16,12 +16,12 @@ gem 'itunes-affiliate'
 ## Configure
 Create an initializer if you use rails in config/initializers named itunes_affiliate.rb and add the following code snippet with your keys. If a key is not present it will be ignored.
 
-ItunesAffiliate.configure do |config|
-    config.linkshare_key = '<LINKSHARE_KEY>'
-    config.linkshare_japan_key = '<LINKSHARE_JAPAN_KEY>'
-    config.tradedoubler_key = '<TRADEDOUBLE_KEY>'
-    config.dgm_key = '<DGM_KEY>'
-end
+		ItunesAffiliate.configure do |config|
+			config.linkshare_key = '<LINKSHARE_KEY>'
+			config.linkshare_japan_key = '<LINKSHARE_JAPAN_KEY>'
+			config.tradedoubler_key = '<TRADEDOUBLE_KEY>'
+			config.dgm_key = '<DGM_KEY>'
+		end
 
 ## Use
 A more detailed description can be found at <http://rubydoc.info/gems/itunes-affiliate>.
@@ -46,6 +46,9 @@ rake build
 rake install
 rake release
 ## Release Notes
+
+### 0.0.2
+* Added affiliate_link to ItunesAffiliate as class method.
 
 ### 0.0.1
 * First version
