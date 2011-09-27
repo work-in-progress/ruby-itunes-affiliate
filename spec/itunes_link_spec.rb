@@ -6,7 +6,10 @@ describe ItunesAffiliate::ItunesLink do
   
   RawLinkWithQuestionMark = "http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5"
   LinkShareAffiliateCode= "Zi7WWVQYf4o"
-
+  LinkShareJapanAffiliateCode = "5635445dsf"
+  TradeDoublerAffiliateCode = 'fdsewr3sd'
+  DGMAffiliateCode = 'ewfsdd'
+  
   before(:all) do
     ItunesAffiliate.configure do  |config|
       config.linkshare_key = LinkShareAffiliateCode
@@ -19,7 +22,7 @@ describe ItunesAffiliate::ItunesLink do
       @link = ItunesAffiliate::ItunesLink.new  RawLinkWithQuestionMark
     end
 
-    it "should create a valid link share link" do
+    it "should create a valid linkshare link" do
       params = link_to_hash  @link.affiliate_link(:linkshare)
             
       params['siteID'].should == LinkShareAffiliateCode

@@ -9,6 +9,16 @@ Include this in your gemfile
 
 gem 'itunes-affiliate'
 
+## Configure
+Create an initializer if you use rails in config/initializers named itunes_affiliate.rb and add the following code snippet with your keys. If a key is not present it will be ignored.
+
+ItunesAffiliate.configure do |config|
+    config.linkshare_key = '<LINKSHARE_KEY>'
+    config.linkshare_japan_key = '<LINKSHARE_JAPAN_KEY>'
+    config.tradedoubler_key = '<TRADEDOUBLE_KEY>'
+    config.dgm_key = '<DGM_KEY>'
+end
+
 ## Use
 A more detailed description can be found at <http://rubydoc.info/gems/itunes-affiliate>.
 
@@ -17,9 +27,6 @@ A more detailed description can be found at <http://rubydoc.info/gems/itunes-aff
 		
 		puts link.affiliate_link(:linkshare)
 
-### Config
-
-### Notes
 
 ## Dependencies
 

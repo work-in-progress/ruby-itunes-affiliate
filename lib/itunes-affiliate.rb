@@ -12,7 +12,11 @@ module ItunesAffiliate
     end
 
     def config
-      @config ||= Configuration.new
+      unless @config
+        @config = Configuration.new
+        @config.reset
+      end
+      @config 
     end
 
   end  

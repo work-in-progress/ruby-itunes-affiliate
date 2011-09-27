@@ -9,9 +9,12 @@ module ItunesAffiliate
     end
 
     def affiliate_link(partner)
-  
-      "#{@source_link}&partnerId=30&siteID=#{ItunesAffiliate.config.linkshare_key}"
+      case partner
+        when :linkshare
+          "#{@source_link}&partnerId=#{ItunesAffiliate.config.linkshare_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_key}"
+        else
+          raise ArgumentException "Unrecognized partner #{partner} must be one of #{Partners}"
+      end
     end
-
   end
 end
