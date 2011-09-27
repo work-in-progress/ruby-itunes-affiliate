@@ -4,7 +4,9 @@ require 'itunes-affiliate'
 describe ItunesAffiliate::ItunesLink do
   include TestHelpers
   
+  RawLinkWithoutQuestionMark = "http://itunes.apple.com/app/swine-flu-detector/id295517288"
   RawLinkWithQuestionMark = "http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5"
+
   LinkShareAffiliateCode= "Zi7WWVQYf4o"
   LinkShareJapanAffiliateCode = "5635445dsf"
   TradeDoublerAffiliateCode = 'fdsewr3sd'
@@ -20,7 +22,7 @@ describe ItunesAffiliate::ItunesLink do
   end
   
   
-  context "when using an itunes link" do
+  context "when using an itunes link with parameter" do
     before(:each) do
       @link = ItunesAffiliate::ItunesLink.new  RawLinkWithQuestionMark
     end
@@ -56,11 +58,48 @@ describe ItunesAffiliate::ItunesLink do
       params['partnerId'].should == '1002'
       params['uo'].should == '5'
     end
-    
-    
   end
+  
+  context "when using an itunes link withOUT parameter" do
+    before(:each) do
+      @link = ItunesAffiliate::ItunesLink.new  RawLinkWithoutQuestionMark
+    end
+
+    it "should create a valid linkshare link" do
+      params = link_to_hash  @link.affiliate_link(:linkshare)
+            
+      params['siteID'].should == LinkShareAffiliateCode
+      params['partnerId'].should == '30'
+    end
+
+    it "should create a valid linkshare japan link" do
+      params = link_to_hash  @link.affiliate_link(:linkshare_japan)
+            
+      params['siteID'].should == LinkShareJapanAffiliateCode
+      params['partnerId'].should == '30'
+    end
+    
+    it "should create a valid tradedoubler link" do
+      params = link_to_hash  @link.affiliate_link(:tradedoubler)
+            
+      params['tduid'].should == TradeDoublerAffiliateCode
+      params['partnerId'].should == '2003'
+    end
+
+    it "should create a valid dgm link" do
+      params = link_to_hash  @link.affiliate_link(:dgm)
+            
+      params['affToken'].should == DGMAffiliateCode
+      params['partnerId'].should == '1002'
+    end
+  end
+  
   
   # Missing specs:
   # Must raise ArgumentException if invalid affiliate link
   # Must raise ArgumentException if no link is passed
+  # check invalid url
+  # check no params -> make sure url is correct
+  # check that the source url is still present
+  # select code based on language
 end

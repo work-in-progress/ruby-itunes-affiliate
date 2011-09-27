@@ -14,7 +14,7 @@ module TestHelpers
   
   def link_to_hash(link)
     res = URI.parse link
-     res = res.query.split '&'
+     res = res.query ?  res.query.split('&') : []
      
     params = {}
     res.each {|x| y = x.split("=");params[ y[0]] = y[1] }

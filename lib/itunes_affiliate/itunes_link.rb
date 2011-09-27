@@ -1,3 +1,5 @@
+require 'uri'
+
 module ItunesAffiliate
   class ItunesLink
 
@@ -11,16 +13,29 @@ module ItunesAffiliate
     def affiliate_link(partner)
       case partner
         when :linkshare
-          "#{@source_link}&partnerId=#{ItunesAffiliate.config.linkshare_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_key}"
+          append_to_link @source_link, "&partnerId=#{ItunesAffiliate.config.linkshare_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_key}"
         when :linkshare_japan
-          "#{@source_link}&partnerId=#{ItunesAffiliate.config.linkshare_japan_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_japan_key}"
+          append_to_link @source_link, "&partnerId=#{ItunesAffiliate.config.linkshare_japan_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_japan_key}"
         when :tradedoubler
-          "#{@source_link}&partnerId=#{ItunesAffiliate.config.tradedoubler_partner_id}&tduid=#{ItunesAffiliate.config.tradedoubler_key}"
+          append_to_link @source_link, "&partnerId=#{ItunesAffiliate.config.tradedoubler_partner_id}&tduid=#{ItunesAffiliate.config.tradedoubler_key}"
         when :dgm
-          "#{@source_link}&partnerId=#{ItunesAffiliate.config.dgm_partner_id}&affToken=#{ItunesAffiliate.config.dgm_key}"
+          append_to_link @source_link, "&partnerId=#{ItunesAffiliate.config.dgm_partner_id}&affToken=#{ItunesAffiliate.config.dgm_key}"
         else
           raise ArgumentException "Unrecognized partner #{partner} must be one of #{Partners}"
       end
+    end
+    
+    
+    private 
+    
+    # A total hack, this is a good example of really bad code.
+    def append_to_link(link, append_me)
+      unless URI.parse(link).query 
+        append_me[0] = "?"
+      end 
+      
+      "#{link}#{append_me}"
+        
     end
   end
 end
