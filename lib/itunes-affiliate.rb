@@ -1,7 +1,7 @@
 require "itunes-affiliate/version"
+require "itunes-affiliate/itunes_link"
 
-module Itunes
-  module Affiliate
-    # Your code goes here...
-  end
-end
+#module Itunes
+#  module Affiliate
+#  end
+#end
