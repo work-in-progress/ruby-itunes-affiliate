@@ -1,7 +1,19 @@
-require "itunes-affiliate/version"
-require "itunes-affiliate/itunes_link"
+require "itunes_affiliate/version"
+require "itunes_affiliate/configuration"
+require "itunes_affiliate/itunes_link"
 
-#module Itunes
-#  module Affiliate
-#  end
-#end
+module ItunesAffiliate
+
+  class << self
+    attr_accessor :config
+
+    def configure()
+      yield(config)
+    end
+
+    def config
+      @config ||= Configuration.new
+    end
+
+  end  
+end

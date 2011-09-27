@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "itunes-affiliate/version"
+require "itunes_affiliate/version"
 
 
 Gem::Specification.new do |s|
   s.name        = "itunes-affiliate"
-  s.version     = Itunes::Affiliate::VERSION
+  s.version     = ItunesAffiliate::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Martin Wawrusch"]
   s.email       = ["martin@wawrusch.com"]

@@ -13,7 +13,7 @@ gem 'itunes-affiliate'
 A more detailed description can be found at <http://rubydoc.info/gems/itunes-affiliate>.
 
 ###Some Sample Code
-		link = ItunesAffiliateLink.new("http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5")
+		link = ItunesLink.new("http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5")
 		
 		puts link.affiliate_link(:linkshare)
 
