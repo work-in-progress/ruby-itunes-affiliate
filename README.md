@@ -47,6 +47,9 @@ rake install
 rake release
 ## Release Notes
 
+### 0.0.3
+* Documentation added
+
 ### 0.0.2
 * Added affiliate_link to ItunesAffiliate as class method.
 
