@@ -1,5 +1,9 @@
 ## itunes-affiliate
+A simple gem that helps with the creation of itunes links, especially when dealing with EPF data. This is a work in progress, first version is really just to have the minimal use case working. 
 
+Feature requests are welcome.
+
+If you use it please test against your affiliate id and provide feedback. Use at your own risk.
 
 [![Build Status](http://travis-ci.org/freshfugu/itunes-affiliate.png)](http://travis-ci.org/freshfugu/itunes-affiliate)
 
@@ -34,8 +38,13 @@ A more detailed description can be found at <http://rubydoc.info/gems/itunes-aff
 
 ## Trivia
 
-This gem was created to the tunes of Natalia Kills and Nicki Minaj.
+This gem was created to the tunes of Nicki Minaj and Jennifer Lopez.
 
+## Build
+
+rake build
+rake install
+rake release
 ## Release Notes
 
 ### 0.0.1
