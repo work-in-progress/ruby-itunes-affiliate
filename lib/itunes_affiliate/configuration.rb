@@ -13,7 +13,6 @@ module ItunesAffiliate
         :tradedoubler_partner_id,
         :dgm_partner_id].freeze
       
-      DEFAULT_KEY = :linkshare_key
       DEFAULT_LINKSHARE_KEY = ''
       DEFAULT_LINKSHARE_JAPAN_KEY = ''
       DEFAULT_TRADEDOUBLER_KEY = ''

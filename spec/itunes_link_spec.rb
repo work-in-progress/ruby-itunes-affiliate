@@ -13,6 +13,9 @@ describe ItunesAffiliate::ItunesLink do
   before(:all) do
     ItunesAffiliate.configure do  |config|
       config.linkshare_key = LinkShareAffiliateCode
+      config.linkshare_japan_key =LinkShareJapanAffiliateCode
+      config.tradedoubler_key =TradeDoublerAffiliateCode
+      config.dgm_key =DGMAffiliateCode
     end
   end
   
@@ -29,6 +32,35 @@ describe ItunesAffiliate::ItunesLink do
       params['partnerId'].should == '30'
       params['uo'].should == '5'
     end
+
+    it "should create a valid linkshare japan link" do
+      params = link_to_hash  @link.affiliate_link(:linkshare_japan)
+            
+      params['siteID'].should == LinkShareJapanAffiliateCode
+      params['partnerId'].should == '30'
+      params['uo'].should == '5'
+    end
+    
+    it "should create a valid tradedoubler link" do
+      params = link_to_hash  @link.affiliate_link(:tradedoubler)
+            
+      params['tduid'].should == TradeDoublerAffiliateCode
+      params['partnerId'].should == '2003'
+      params['uo'].should == '5'
+    end
+
+    it "should create a valid dgm link" do
+      params = link_to_hash  @link.affiliate_link(:dgm)
+            
+      params['affToken'].should == DGMAffiliateCode
+      params['partnerId'].should == '1002'
+      params['uo'].should == '5'
+    end
+    
+    
   end
   
+  # Missing specs:
+  # Must raise ArgumentException if invalid affiliate link
+  # Must raise ArgumentException if no link is passed
 end

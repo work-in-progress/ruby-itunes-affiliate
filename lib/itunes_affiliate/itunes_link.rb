@@ -12,6 +12,12 @@ module ItunesAffiliate
       case partner
         when :linkshare
           "#{@source_link}&partnerId=#{ItunesAffiliate.config.linkshare_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_key}"
+        when :linkshare_japan
+          "#{@source_link}&partnerId=#{ItunesAffiliate.config.linkshare_japan_partner_id}&siteID=#{ItunesAffiliate.config.linkshare_japan_key}"
+        when :tradedoubler
+          "#{@source_link}&partnerId=#{ItunesAffiliate.config.tradedoubler_partner_id}&tduid=#{ItunesAffiliate.config.tradedoubler_key}"
+        when :dgm
+          "#{@source_link}&partnerId=#{ItunesAffiliate.config.dgm_partner_id}&affToken=#{ItunesAffiliate.config.dgm_key}"
         else
           raise ArgumentException "Unrecognized partner #{partner} must be one of #{Partners}"
       end
