@@ -5,7 +5,7 @@ Feature requests are welcome.
 
 If you use it please test against your affiliate id and provide feedback. Use at your own risk.
 
-[![Build Status](http://travis-ci.org/freshfugu/itunes-affiliate.png)](http://travis-ci.org/freshfugu/itunes-affiliate)
+[![Build Status](http://travis-ci.org/freshfugu/ruby-itunes-affiliate.png)](http://travis-ci.org/freshfugu/ruby-itunes-affiliate)
 
 ## Install
 

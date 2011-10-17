@@ -1,0 +1,20 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+info using npm@1.0.30
+info using node@v0.4.12
+verbose /usr/local/bin/node node symlink
+verbose config file /Users/mwawrusch/.npmrc
+verbose config file /usr/local/etc/npmrc
+ERR! Couldn't read dependencies.
+ERR! Error: ENOENT, No such file or directory '/Users/mwawrusch/Documents/gems/itunes-affiliate/package.json'
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Darwin 11.1.0
+ERR! command "node" "/usr/local/bin/npm" "install"
+ERR! cwd /Users/mwawrusch/Documents/gems/itunes-affiliate
+ERR! node -v v0.4.12
+ERR! npm -v 1.0.30
+verbose exit [ 1, true ]
