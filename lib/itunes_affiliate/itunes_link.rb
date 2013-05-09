@@ -4,7 +4,12 @@ module ItunesAffiliate
   class ItunesLink
 
     # The list of possible affiliate parters, as determined by the store.
-    Partners =  [:linkshare,:linkshare_japan,:tradedoubler,:dgm].freeze
+    Partners = [
+      :linkshare,
+      :linkshare_japan,
+      :tradedoubler,
+      :dgm
+    ].freeze
      
     # Initializes a new instance of the ItunesLink class
     # @param [String] source_link the source link, which should be a valid clean itunes link
@@ -44,15 +49,15 @@ module ItunesAffiliate
     end
     
     private 
-    
-    # A total hack, this is a good example of really bad code.
-    def append_to_link(link, append_me)
-      unless URI.parse(link).query 
-        append_me[0] = "?"
-      end 
-      
-      "#{link}#{append_me}"
+
+      # A total hack, this is a good example of really bad code.
+      def append_to_link(link, append_me)
+        unless URI.parse(link).query 
+          append_me[0] = "?"
+        end 
         
-    end
+        "#{link}#{append_me}"
+      end
+
   end
 end

@@ -10,31 +10,22 @@ If you use it please test against your affiliate id and provide feedback. Use at
 ## Install
 
 Include this in your gemfile
-
+```
 gem 'itunes-affiliate'
+```
 
 ## Configure
-Create an initializer if you use rails in config/initializers named itunes_affiliate.rb and add the following code snippet with your keys. If a key is not present it will be ignored.
-
-		ItunesAffiliate.configure do |config|
-			config.linkshare_key = '<LINKSHARE_KEY>'
-			config.linkshare_japan_key = '<LINKSHARE_JAPAN_KEY>'
-			config.tradedoubler_key = '<TRADEDOUBLE_KEY>'
-			config.dgm_key = '<DGM_KEY>'
-		end
+Run `bundle exec rails g itunes_affiliate:install` and customize the `config/intializers/itunes_affiliate.rb` file that was created.
 
 ## Use
 A more detailed description can be found at <http://rubydoc.info/gems/itunes-affiliate>.
 
-###Some Sample Code
-		link = ItunesLink.new("http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5")
-		
-		puts link.affiliate_link(:linkshare)
+### Some Sample Code
+```ruby
+link = ItunesLink.new("http://itunes.apple.com/app/swine-flu-detector/id295517288?uo=5"
+puts link.affiliate_link(:linkshare)
+```
 
-
-## Dependencies
-
-## Acknowledgments
 
 ## Trivia
 

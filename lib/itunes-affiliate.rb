@@ -36,6 +36,7 @@ module ItunesAffiliate
         @config = Configuration.new
         @config.reset
       end
+      
       @config 
     end
 
@@ -46,7 +47,7 @@ module ItunesAffiliate
     def affiliate_link(link,partner)
       return link unless ItunesAffiliate::ItunesLink.is_valid_link?(link)
       
-      return ItunesAffiliate::ItunesLink.new(link).affiliate_link(partner)
+      ItunesAffiliate::ItunesLink.new(link).affiliate_link(partner)
     end
   end  
 end
